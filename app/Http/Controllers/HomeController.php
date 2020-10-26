@@ -13,16 +13,22 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'verified']);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function home()
     {
-        return view('welcome');
+        return view('home.home');
+    }
+
+    public function ketang()
+    {
+        return view('home.ketang');
+    }
+
+    public function profile()
+    {
+        $user = \Auth::user();
+        return view('home.profile', [ 'user' => $user ]);
     }
 }

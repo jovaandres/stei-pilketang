@@ -3,7 +3,9 @@
 @section('content')
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 p-5 pt-2">
-            <h3 class="ml-1"><i class="fas fa-user mr-2"></i>PROFIL</h3>
+            <div class="bg-not-dark text-center">
+                <h3 class="ml-1 text-gray"><i class="fas fa-user mr-2 text-gray"></i>PROFIL</h3>
+            </div>
             <hr/>
             <div class="row z-depth-3 ml-1">
                 <div class="col-sm-4 bg-primary rounded-left ">
@@ -42,7 +44,7 @@
                         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h2 class="modal-title text-center text-danger" id="judul">PERHATIAN!</h2>
+                                    <h2 class="ml-auto mr-auto modal-title text-danger" id="judul">PERHATIAN!</h2>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -62,7 +64,7 @@
                                         <div class="form-group">
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="notice-agreement" value="true" name="mark_notice" {{ old('mark_notice')=='true' ? 'checked' : '' }} />
-                                                <label class="form-check-label" for="notice-agreement"><strong>Saya telah membaca semua aturan tersebut dan setuju dengan aturan tersebut.</strong></label>
+                                                <h6><strong>Saya telah membaca semua aturan tersebut dan setuju dengan aturan tersebut.</strong></h6>
                                             </div>
                                         </div>
                                     </form>

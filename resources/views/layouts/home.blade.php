@@ -20,6 +20,15 @@
         src="https://kit.fontawesome.com/66ea7a0dc7.js"
         crossorigin="anonymous"
     ></script>
+    <style>
+        body {
+            background-image: url("{{ asset('css/itb_art.jpg') }}");
+        }
+        .bg-not-dark {
+            background-color: transparent;
+            backdrop-filter: blur(16px);
+        }
+    </style>
     <title>Dashboard</title>
 </head>
 <body>
@@ -31,19 +40,19 @@
         </div>
         <div class="list-group list-group-flush">
             <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-light"
-            >Dashboard</a
+            ><b>Dashboard</b></a
             >
             <a href="{{ route('home.profile') }}" class="list-group-item list-group-item-action bg-light"
-            >Profil</a
+            ><b>Profil</b></a
             >
             <a href="{{ route('home.ketang') }}" class="list-group-item list-group-item-action bg-light"
-            >Profil Ketang</a
+            ><b>Profil Ketang</b></a
             >
             <a href="{{ route('home.token') }}" class="list-group-item list-group-item-action bg-light"
-            >Token</a
+            ><b>Token</b></a
             >
-            <a href="#" class="list-group-item list-group-item-action bg-light"
-            >Voting</a
+            <a href="{{ route('home.vote') }}" class="list-group-item list-group-item-action bg-light"
+            ><b>Voting</b></a
             >
         </div>
     </div>
@@ -52,12 +61,12 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <nav
-            class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom text-white"
+            class="navbar navbar-expand-lg navbar-dark bg-not-dark border-bottom text-white"
         >
             <button class="btn btn-primary" id="menu-toggle">Menu</button>
 
             <button
-                class="navbar-toggler"
+                class="navbar-toggler bg-dark"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarSupportedContent"
@@ -68,14 +77,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <h5 class="navbar-title ml-3 mt-1">WELCOME | <b>STEI VOTE</b></h5>
+            <h5 class="navbar-title ml-3 mt-1 text-black-50">WELCOME | <b class="text-black-50">STEI 2020</b></h5>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
                     <li class="nav-item dropdown">
                         <a
-                            class="nav-link dropdown-toggle text-white"
+                            class="nav-link dropdown-toggle text-black-50"
                             href="#"
                             id="navbarDropdown"
                             role="button"

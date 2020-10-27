@@ -1,20 +1,20 @@
 @extends('layouts.sso')
 
 @section('custom-head')
-    <title>Masuk Akun</title>
+    <title>Masuk</title>
 @endsection
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}" class="rounded form-signin bg-light">
+    <form method="POST" action="{{ route('login') }}" class="roundedd form-signin bg-light">
         @csrf
         <img class="mb-4" src="{{ asset('img/logo.png') }}" alt="logo stei" height="80px" />
-        <h1 class="h3 mb-3 font-weight-normal">Masuk Akun</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Masuk</h1>
         <label for="inputEmail" class="sr-only">Alamat Email</label>
         <input
             type="email"
             id="inputEmail"
-            class="form-control @error('email') is-invalid @enderror"
-            placeholder="Email address"
+            class="form-control my-2 @error('email') is-invalid @enderror"
+            placeholder="Alamat Email"
             name="email"
             autocomplete="email"
             value="{{ old('email') }}"
@@ -43,11 +43,11 @@
         @enderror
         <div class="checkbox mb-2">
             <label>
-                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} /> Ingat Saya
+                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} /> Ingat saya
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">
-            Login
+            Masuk
         </button>
         <p>
             <a href="{{ route('password.request') }}">Lupa Password?</a><br />

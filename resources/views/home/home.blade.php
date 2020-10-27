@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="col-md-12 p-5 pt-2">
-        <h3><i class="fas fa-columns mr-1"></i>DASHBOARD</h3>
-        <hr />
-
+        <div class="bg-not-dark text-center">
+            <h3 class="text-gray ml-5"><i class="fas fa-columns mr-1 text-gray"></i>DASHBOARD</h3>
+        </div>
         <div class="row text-white">
             <div class="card bg-dark ml-3" style="width: 18rem">
                 <div class="card-body">
@@ -12,7 +12,7 @@
                         <i class="far fa-question-circle mr-3"></i>
                     </div>
                     <h5 class="card-title">Informasi</h5>
-                    <div class="display-4">Sample</div>
+                    <div class="display-4">Vote Day</div>
                     <a href="">
                         <p class="card-text text-white">
                             Area Voting
@@ -29,7 +29,7 @@
                     </div>
                     <h5 class="card-title">Tanggal</h5>
                     <div class="display-4" style="font-size: 40px">
-                        Hari, dd/mm/yyyy
+                        Kamis, 29/10/2020
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         href="https://www.instagram.com/stei20itb/"
                         class="btn btn-primary btn-danger"
                         target="_blank"
-                    >Follow</a>
+                    >Ikuti</a>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
                     <i class="fas fa-phone-alt"></i>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-warning">Contact Person</h5>
+                    <h5 class="card-title text-warning">Narahubung</h5>
                     <p style="color: black; font-size: 18px">
                         Kevin Roni: <i class="fab fa-line mr-1"></i>kevinroni
                         <br />Zakie: <i class="fab fa-line mr-1"></i>pwzakie

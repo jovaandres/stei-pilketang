@@ -31,11 +31,12 @@ class TokenController extends Controller
 
     public function mark_notice(Request $request)
     {
-        if(!$request->has('mark_notice'))
-            return back()->with('error', 'Kamu belum setuju dengan aturan klaim token!');
         $req = $request->validate([
             'mark_notice' => ['required', 'accepted']
         ]);
+        if(!$request->has('mark_notice'))
+            return back()->with('error', 'Kamu belum setuju dengan aturan klaim token!');
+
         $user = Auth::user();
         $user->is_notice_read = boolval($req['mark_notice']);
         $user->save();

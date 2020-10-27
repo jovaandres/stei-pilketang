@@ -14,54 +14,68 @@
             </div>
         </div>
     @else
-    <!--token-before-->
-    <div id="token-before">
-        <div class="container text-center p-3 my-3 bg-light rounded shadow-sm">
-            <div class="lh-100">
-                <h4 class="mb-0 text-black lh-100">
-                    Tekan Tombol Berikut untuk Membuat Token
+        <!--token-before-->
+        <div id="token-before">
+            <div class="container text-center p-3 my-3 bg-light rounded shadow-sm">
+                <div class="lh-100">
+                    <h4 class="mb-0 text-black lh-100">
+                        Tekan Tombol Berikut untuk Membuat Token
                     </h4>
-                    <hr />
+                    <hr/>
                     <button id="btn-token" type="button" class="btn-block btn btn-danger btn-lg">
                         BUAT TOKEN
                     </button>
-            </div>
-        </div>
-    </div>
-    <!--token generate-->
-    <div id="token-generate" style="display: none;">
-        <div class="container bg-light text-center p-3 my-3 rounded">
-            <div>
-                <h3 style="color: #ff0000;">SEDANG MEMBUAT TOKEN<br>MOHON JANGAN REFRESH HALAMAN</h3>
-                <div class="progress">
-                    <div
-                        class="progress-bar progress-bar-striped progress-bar-animated"
-                        role="progressbar"
-                        style="width: 100%"
-                    ></div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--token after-->
-    <div id="token-after" style="display: none;">
-        <div class="container bg-light text-center p-3 my-3 rounded">
-            <div>
-                <h3>TOKEN ANDA</h3>
-                <h1 id="token" class="bg-warning" style="font-size: 65px; font-family: monospace;"></h1>
-            </div>
-            <div>
-                <h4 style="color: red;">!!! Silahakan Catat/Simpan Token Anda Secepat dan Seaman Mungkin !!!<br>
-                    <span style="font-size: 35px;">TOKEN HANYA MUNCUL SATU KALI</span>
-                </h4>
+        <!--token generate-->
+        <div id="token-generate" style="display: none;">
+            <div class="container bg-light text-center p-3 my-3 rounded">
+                <div>
+                    <h3 style="color: #ff0000;">SEDANG MEMBUAT TOKEN<br>MOHON JANGAN REFRESH HALAMAN</h3>
+                    <div class="progress">
+                        <div
+                            class="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar"
+                            style="width: 100%"
+                        ></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <!--token after-->
+        <div id="token-after" style="display: none;">
+            <div class="container bg-light text-center p-3 my-3 rounded">
+                <div>
+                    <h3>TOKEN ANDA</h3>
+                    <h1 id="token" class="bg-warning" style="font-size: 65px; font-family: monospace;"></h1>
+                </div>
+                <div>
+                    <h4 style="color: red;">!!! Silahakan Catat/Simpan Token Anda Secepat dan Seaman Mungkin !!!<br>
+                        <span style="font-size: 35px;">TOKEN HANYA MUNCUL SATU KALI</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
     @endif
 @endsection
 
 @section('custom-script')
     <script type="module">
-        !function(){var e=$("#token-before"),t=$("#token-generate"),n=$("#token-after");$("#btn-token").click(function(){e.hide(),t.show();var o=new XMLHttpRequest;o.onreadystatechange=function(){if(4===o.readyState&&200===o.status){var s=JSON.parse(o.responseText);$("#token").text(s.token),t.hide(),n.show(),window.onbeforeunload=function(){return""}}else 4===o.readyState&&(alert(o.status+" "+o.statusText+": "+o.response),t.hide(),e.show())},o.open("POST","{{ route('token.generate') }}"),o.setRequestHeader("Content-Type","application/json"),o.send(JSON.stringify({_token:"{{ csrf_token() }}"}))})}();
+        !function () {
+            var e = $("#token-before"), t = $("#token-generate"), n = $("#token-after");
+            $("#btn-token").click(function () {
+                e.hide(), t.show();
+                var o = new XMLHttpRequest;
+                o.onreadystatechange = function () {
+                    if (4 === o.readyState && 200 === o.status) {
+                        var s = JSON.parse(o.responseText);
+                        $("#token").text(s.token), t.hide(), n.show(), window.onbeforeunload = function () {
+                            return ""
+                        }
+                    } else 4 === o.readyState && (alert(o.status + " " + o.statusText + ": " + o.response), t.hide(), e.show())
+                }, o.open("POST", "{{ route('token.generate') }}"), o.setRequestHeader("Content-Type", "application/json"), o.send(JSON.stringify({_token: "{{ csrf_token() }}"}))
+            })
+        }();
     </script>
 @endsection

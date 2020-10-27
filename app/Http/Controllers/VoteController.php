@@ -2,84 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Token;
 use App\Vote;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware(['auth', 'verified']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function vote()
     {
-        //
+        return view('home.vote');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function success_vote(Request $request)
     {
-        //
+        $request->validate([
+            'token' => 'required',
+            'name' => 'required'
+        ]);
+
+        $input_token = $request->token;
+        $calon_dipilih = $request->calon;
+
+        if (Token::where('token_vote', $input_token)->exists() &&
+            !Token::where('token_vote', $input_token)->select('is_token_used')->get()[0]['is_token_used'])
+        {
+            $this->update_total_suara($calon_dipilih);
+            $this->update_token($input_token);
+            return redirect('vote')->with('success', 'Berhasil Vote');
+        }
+        return redirect('vote')->with('failed', 'Invalid Token');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Vote  $vote
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vote $vote)
+    public function update_token($input_token)
     {
-        //
+        Token::where('token_vote', $input_token)->update([
+            'is_token_used' => true
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Vote  $vote
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vote $vote)
+    public function update_total_suara($calon_dipilih)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Vote  $vote
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Vote $vote)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Vote  $vote
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Vote $vote)
-    {
-        //
+        $suara_sementara = Vote::where('panggilan', $calon_dipilih)->select('total_suara')->get()[0]['total_suara'];
+        Vote::where('panggilan', $calon_dipilih)->update([
+            'total_suara' => $suara_sementara + 1
+        ]);
     }
 }

@@ -1,9 +1,9 @@
 @extends('layouts.home')
 
 @section('content')
-    <div class="col-md-14 p-5 pt-2">
+    <div class="p-5 pt-2">
         <div class="bg-not-dark text-center mb-t">
-            <h3 class="text-gray"><i class="fas fa-user-friends mr-2 text-gray"></i>PROFIL CALON KETUA ANGKATAN</h3>
+            <h3 class="text-white"><i class="fas fa-user-friends mr-2 text-white"></i>PROFIL CALON KETUA ANGKATAN</h3>
         </div>
         <div class="row mt-4">
             <div class="card ml-3 mb-3 ml-auto mr-auto border-dark" style="width: 16rem">

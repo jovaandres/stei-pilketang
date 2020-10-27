@@ -46,7 +46,7 @@
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} /> Ingat saya
             </label>
         </div>
-        <button class="btn-grad btn btn-lg btn-primary btn-block mb-2" type="submit">
+        <button class="btn-grad btn btn-lg btn-block mb-2" type="submit">
             Masuk
         </button>
         <p>

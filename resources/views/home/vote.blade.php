@@ -3,21 +3,21 @@
 @section('content')
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-14 p-5 pt-2">
+            <div class="p-5 pt-2">
                 @if(Auth::user()->is_voted)
                     @if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
-                    <div class="bg-white">
-                        <h3 class="text-danger">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1
+                    <div class="token_container bg-white">
+                        <h3 class="text-danger p-2">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1
                             vote.</h3>
-                        <h3>Ditunggu pengumumannya ;D</h3>
+                        <h3 class="p-2">Ditunggu pengumumannya ;D</h3>
                     </div>
                 @else
                     <div class="bg-not-dark text-center">
-                        <h3 class="ml-1 text-gray"><i class="fas fa-vote-yea mr-2 text-gray"></i>VOTE SYSTEM</h3>
+                        <h3 class="ml-1 text-white"><i class="fas fa-vote-yea mr-2 text-white"></i>VOTE SYSTEM</h3>
                     </div>
 
                     @if (session('failed'))
@@ -27,8 +27,8 @@
                     @endif
 
                     @error ('calon')
-                    <div class="alert alert-danger">
-                        <strong>{{ $message }}</strong>
+                    <div class="alert alert-danger text-center">
+                        <strong>Anda harus memilih</strong>
                     </div>
                     @enderror
                     <hr/>
@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="container bg-primary text-white p-3">
+                                <div class="container bg-white text-center text-black-50 p-3">
                                     <h1>Masukkan Token</h1>
                                     <div class="form-group">
                                         <input type="text" name="token"
@@ -68,7 +68,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <button type="submit" id="submit" class="btn-grad btn btn-danger btn-block">
+                                    <button type="submit" id="submit" class="btn-grad btn btn-block">
                                         PILIH
                                     </button>
                                 </div>

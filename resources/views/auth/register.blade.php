@@ -64,7 +64,7 @@
             required
         />
 
-        <button class="btn-grad btn btn-lg btn-primary btn-block mt-4" type="submit">
+        <button class="btn-grad btn btn-lg btn-block mt-4" type="submit">
             Daftar
         </button>
         <p class="mt-3"><a href="{{ route('login') }}">Sudah punya akun</a></p>

@@ -1,15 +1,15 @@
 @extends('layouts.home')
 
 @section('content')
-    <div class="col-md-14 p-5 pt-2">
+    <div class="p-5 pt-2">
         <div class="bg-not-dark text-center">
-            <h3 class="text-gray"><i class="fas fa-user-friends mr-2 text-gray"></i>DASHBOARD</h3>
+            <h3 class="text-white"><i class="fas fa-user-friends mr-2 text-white"></i>DASHBOARD</h3>
         </div>
         <div class="row text-white">
             <div class="card bg-dark ml-3" style="width: 18rem">
                 <div class="card-body">
                     <div class="card-body-icon">
-                        <i class="far fa-question-circle mr-3"></i>
+                        <i class="fas fa-vote-yea mr-3"></i>
                     </div>
                     <h5 class="card-title">Informasi</h5>
                     <div class="display-4">Vote Day</div>
@@ -47,7 +47,8 @@
                     <h5 class="card-title text-danger">Instagram</h5>
                     <a
                         href="https://www.instagram.com/stei20itb/"
-                        class="btn btn-primary btn-danger"
+                        class="btn btn-grad btn-grad-red"
+                        style="display: initial;"
                         target="_blank"
                     >Ikuti</a>
                 </div>

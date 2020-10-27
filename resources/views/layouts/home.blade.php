@@ -26,8 +26,8 @@
         }
 
         .bg-not-dark {
-            background-color: transparent;
-            backdrop-filter: blur(8px);
+            background-color: rgba(22, 22, 22, 0.4);
+            backdrop-filter: blur(2px);
         }
 
         .footer {
@@ -52,13 +52,21 @@
             background-image: linear-gradient(to right, #56CCF2 0%, #2F80ED 51%, #56CCF2 100%)
         }
 
+        .btn-grad-gold {
+            background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%)
+        }
+
+        .btn-grad-red {
+            background-image: linear-gradient(to right, #D31027 0%, #EA384D 51%, #D31027 100%)
+        }
+
         .btn-grad {
             text-align: center;
             text-transform: uppercase;
             transition: 0.5s;
             background-size: 200% auto;
             color: white;
-            box-shadow: 0 0 20px #eee;
+            box-shadow: 0 0 10px #eee;
             display: block;
         }
 
@@ -88,14 +96,14 @@
             ><b>Profil Ketang</b></a
             >
             @if(config('app.enable_claim_token'))
-            <a href="{{ route('home.token') }}" class="list-group-item list-group-item-action bg-light"
-            ><b>Token</b></a
-            >
+                <a href="{{ route('home.token') }}" class="list-group-item list-group-item-action bg-light"
+                ><b>Token</b></a
+                >
             @endif
             @if(config('app.enable_vote'))
-            <a href="{{ route('home.vote') }}" class="list-group-item list-group-item-action bg-light"
-            ><b>Voting</b></a
-            >
+                <a href="{{ route('home.vote') }}" class="list-group-item list-group-item-action bg-light"
+                ><b>Voting</b></a
+                >
             @endif
         </div>
     </div>
@@ -106,7 +114,7 @@
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-not-dark border-bottom text-white"
         >
-            <button class="btn-grad btn btn-primary" id="menu-toggle">Menu</button>
+            <button class="btn-grad btn" id="menu-toggle">Menu</button>
 
             <button
                 class="navbar-toggler bg-dark"
@@ -120,14 +128,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <h5 class="navbar-title ml-3 mt-1 text-black-50">WELCOME | <b class="text-black-50">STEI 2020</b></h5>
+            <h5 class="navbar-title ml-3 mt-1 text-white">WELCOME | <b class="text-white">STEI 2020</b></h5>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
                     <li class="nav-item dropdown">
                         <a
-                            class="nav-link dropdown-toggle text-black-50"
+                            class="nav-link dropdown-toggle text-white"
                             href="#"
                             id="navbarDropdown"
                             role="button"
@@ -161,8 +169,9 @@
         <!-- /#page-content-wrapper -->
         <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn-grad btn-primary">Top</button>
         <footer class="footer mb-auto py-1 bg-dark">
-            <div class="container ml-auto" style="font-size: 12px;">
-                <span class="text-white">&#9400;<b> Made with love by IT Team</b>&#10084;</span>
+            <div class="container ml-auto" style="font-size: 14px;">
+                <span class="text-white">This website is made with <i
+                        class="fa fa-heart" aria-hidden="true"></i> by IT Team</span>
             </div>
         </footer>
     </div>

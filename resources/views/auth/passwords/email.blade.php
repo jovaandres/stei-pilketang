@@ -32,7 +32,7 @@
         </span>
         @enderror
 
-        <button class="btn-grad btn btn-lg btn-primary btn-block mt-4" type="submit">
+        <button class="btn-grad btn btn-lg btn-block mt-4" type="submit">
             Kirim Email Reset Password
         </button>
         <p class="mt-3">

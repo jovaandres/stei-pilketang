@@ -17,7 +17,7 @@
             Untuk melanjutkan ke dashboard, harap verifikasi email anda terlebih dahulu.
         </p>
         <p>Tidak menerima email?</p>
-        <button class="btn-grad btn btn-lg btn-primary btn-block mb-2" type="submit">
+        <button class="btn-grad btn btn-lg btn-block mb-2" type="submit">
             Kirim Ulang Verifikasi Email
         </button>
         <a class="text-danger" href="#"

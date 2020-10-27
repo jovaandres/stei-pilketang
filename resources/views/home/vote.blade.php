@@ -5,6 +5,11 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-14 p-5 pt-2">
                 @if(Auth::user()->is_voted)
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="bg-white">
                         <h3 class="text-danger">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1
                             vote.</h3>
@@ -14,21 +19,10 @@
                     <div class="bg-not-dark text-center">
                         <h3 class="ml-1 text-gray"><i class="fas fa-vote-yea mr-2 text-gray"></i>VOTE SYSTEM</h3>
                     </div>
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
 
                     @if (session('failed'))
                         <div class="alert alert-danger">
                             {{ session('failed') }}
-                        </div>
-                    @endif
-
-                    @if (session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
                         </div>
                     @endif
 
@@ -66,6 +60,7 @@
                                     <div class="form-group">
                                         <input type="text" name="token"
                                                class="form-control  @error('token') is-invalid @enderror"
+                                               value="{{ old('token') }}"
                                                placeholder="Token">
                                         @error('token')
                                         <span class="invalid-feedback" role="alert">

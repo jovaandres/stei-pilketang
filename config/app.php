@@ -2,6 +2,10 @@
 
 return [
 
+    'enable_vote' => env('CAN_VOTE', false),
+
+    'enable_claim_token' => env('CAN_CLAIM_TOKEN', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

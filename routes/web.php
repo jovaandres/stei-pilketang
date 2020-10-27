@@ -26,8 +26,12 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/ketang', 'HomeController@ketang')->name('home.ketang');
 Route::get('/profile', 'HomeController@profile')->name('home.profile');
-Route::get('/vote', 'VoteController@show')->name('home.vote');
-Route::post('/vote/submit', 'VoteController@submit')->name('vote.submit');
+if(config('app.enable_vote')) {
+    Route::get('/vote', 'VoteController@show')->name('home.vote');
+    Route::post('/vote/submit', 'VoteController@submit')->name('vote.submit');
+}
 Route::post('/token/notice/read', 'TokenController@mark_notice')->name('token.notice.mark-notice');
-Route::get('/token', 'TokenController@claim')->name('home.token');
-Route::post('/token/generate', 'TokenController@store')->name('token.generate');
+if(config('app.enable_claim_token')) {
+    Route::get('/token', 'TokenController@claim')->name('home.token');
+    Route::post('/token/generate', 'TokenController@store')->name('token.generate');
+}

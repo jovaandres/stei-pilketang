@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row d-flex justify-content-center">
-        <div class="col-md-14 p-5 pt-2">
+        <div class="col-md-12 p-5 pt-2">
             <div class="bg-not-dark text-center">
                 <h3 class="ml-1 text-gray"><i class="fas fa-user mr-2 text-gray"></i>PROFIL</h3>
             </div>
@@ -30,7 +30,7 @@
                         <div class="col-sm-12">
                             <h6 class="{{ ($user->is_notice_read ? ($user->is_token_claimed ? 'text-success':'text-warning'):'text-danger') }}"
                                 style="font-size: 28px;">
-                                {{ ($user->is_notice_read ? ($user->is_token_claimed ? ($user->is_voted ? 'Sudah berhasil vote' : 'Sudah Klaim Token') :'Belum Klaim Token'):'Belum Menyetujui Aturan') }}
+                                {{ ($user->is_notice_read ? ($user->is_token_claimed ? ($user->is_voted ? 'Sudah Vote' : 'Belum Vote, Sudah Klaim Token') :'Belum Klaim Token'):'Belum Menyetujui Aturan') }}
                             </h6>
                         </div>
                     </div>

@@ -87,12 +87,16 @@
             <a href="{{ route('home.ketang') }}" class="list-group-item list-group-item-action bg-light"
             ><b>Profil Ketang</b></a
             >
+            @if(config('app.enable_claim_token'))
             <a href="{{ route('home.token') }}" class="list-group-item list-group-item-action bg-light"
             ><b>Token</b></a
             >
+            @endif
+            @if(config('app.enable_vote'))
             <a href="{{ route('home.vote') }}" class="list-group-item list-group-item-action bg-light"
             ><b>Voting</b></a
             >
+            @endif
         </div>
     </div>
     <!-- /#sidebar-wrapper -->

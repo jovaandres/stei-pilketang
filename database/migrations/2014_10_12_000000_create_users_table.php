@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_notice_read')->default(false);
             $table->boolean('is_token_claimed')->default(false);
+            $table->boolean('is_voted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

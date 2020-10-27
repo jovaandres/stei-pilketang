@@ -13,43 +13,36 @@ class VoteController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function vote()
+    public function show()
     {
         return view('home.vote');
     }
 
-    public function success_vote(Request $request)
+    public function submit(Request $request)
     {
-        $request->validate([
-            'token' => 'required',
-            'name' => 'required'
+        $req = $request->validate([
+            'token' => [ 'required', 'string', 'size:6', 'exists:tokens,token_vote' ],
+            'calon' => [ 'required', 'in:lingga,gede' ]
         ]);
 
-        $input_token = $request->token;
-        $calon_dipilih = $request->calon;
+        $input_token = $req['token'];
+        $calon_dipilih = $req['calon'];
 
-        if (Token::where('token_vote', $input_token)->exists() &&
-            !Token::where('token_vote', $input_token)->select('is_token_used')->get()[0]['is_token_used'])
-        {
-            $this->update_total_suara($calon_dipilih);
-            $this->update_token($input_token);
-            return redirect('vote')->with('success', 'Berhasil Vote');
-        }
-        return redirect('vote')->with('failed', 'Invalid Token');
-    }
+        $token_model = Token::where('token_vote', $input_token)->first();
+        if($token_model->is_token_used)
+            return back()->with('failed', 'Token sudah digunakan!');
 
-    public function update_token($input_token)
-    {
-        Token::where('token_vote', $input_token)->update([
-            'is_token_used' => true
-        ]);
-    }
+        $vote_model = Vote::where('panggilan', $calon_dipilih)->first();
+        $vote_model->total_suara++;
+        $vote_model->saveOrFail();
 
-    public function update_total_suara($calon_dipilih)
-    {
-        $suara_sementara = Vote::where('panggilan', $calon_dipilih)->select('total_suara')->get()[0]['total_suara'];
-        Vote::where('panggilan', $calon_dipilih)->update([
-            'total_suara' => $suara_sementara + 1
-        ]);
+        $token_model->is_token_used = true;
+        $token_model->save();
+
+        $user = \Auth::user();
+        $user->is_voted = true;
+        $user->save();
+
+        return back()->with('success', 'Berhasil Vote');
     }
 }

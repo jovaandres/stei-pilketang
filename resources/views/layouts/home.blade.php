@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -15,7 +15,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
         crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
     <script
         src="https://kit.fontawesome.com/66ea7a0dc7.js"
         crossorigin="anonymous"
@@ -24,9 +24,48 @@
         body {
             background-image: url("{{ asset('css/itb_art.jpg') }}");
         }
+
         .bg-not-dark {
             background-color: transparent;
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(8px);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .token_container {
+            border-style: solid;
+            border-top-color: #56CCF2;
+            border-bottom-color: #2F80ED;
+            border-left-color: #2F80ED;
+            border-right-color: #56CCF2;
+            border-width: medium;
+        }
+
+        .btn-grad {
+            background-image: linear-gradient(to right, #56CCF2 0%, #2F80ED 51%, #56CCF2 100%)
+        }
+
+        .btn-grad {
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            display: block;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
         }
     </style>
     <title>Dashboard</title>
@@ -34,9 +73,9 @@
 <body>
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="bg-light" id="sidebar-wrapper">
         <div class="sidebar-heading">
-            <img src="{{ asset('img/logo-text.png') }}" alt="" />
+            <img src="{{ asset('img/logo-text.png') }}" alt=""/>
         </div>
         <div class="list-group list-group-flush">
             <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-light"
@@ -63,7 +102,7 @@
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-not-dark border-bottom text-white"
         >
-            <button class="btn btn-primary" id="menu-toggle">Menu</button>
+            <button class="btn-grad btn btn-primary" id="menu-toggle">Menu</button>
 
             <button
                 class="navbar-toggler bg-dark"
@@ -116,7 +155,12 @@
             @yield('content')
         </div>
         <!-- /#page-content-wrapper -->
-        <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn-primary">Top</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn-grad btn-primary">Top</button>
+        <footer class="footer mb-auto py-1 bg-dark">
+            <div class="container ml-auto" style="font-size: 12px;">
+                <span class="text-white">&#9400;<b> Made with love by IT Team</b>&#10084;</span>
+            </div>
+        </footer>
     </div>
     <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

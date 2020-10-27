@@ -3,10 +3,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-12 p-5 pt-2">
+            <div class="col-md-14 p-5 pt-2">
                 @if(Auth::user()->is_voted)
                     <div class="bg-white">
-                        <h3 class="text-danger">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1 vote.</h3>
+                        <h3 class="text-danger">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1
+                            vote.</h3>
                         <h3>Ditunggu pengumumannya ;D</h3>
                     </div>
                 @else
@@ -22,6 +23,12 @@
                     @if (session('failed'))
                         <div class="alert alert-danger">
                             {{ session('failed') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
                         </div>
                     @endif
 
@@ -57,14 +64,16 @@
                                 <div class="container bg-primary text-white p-3">
                                     <h1>Masukkan Token</h1>
                                     <div class="form-group">
-                                        <input type="text" name="token" class="form-control  @error('token') is-invalid @enderror" placeholder="Token" >
+                                        <input type="text" name="token"
+                                               class="form-control  @error('token') is-invalid @enderror"
+                                               placeholder="Token">
                                         @error('token')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
                                     </div>
-                                    <button type="submit" id="submit" class="btn btn-danger btn-block">
+                                    <button type="submit" id="submit" class="btn-grad btn btn-danger btn-block">
                                         PILIH
                                     </button>
                                 </div>
@@ -75,8 +84,6 @@
             </div>
 
         </div>
-        <!-- /#page-content-wrapper -->
-        <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn-primary">Top</button>
     </div>
 @endsection
 

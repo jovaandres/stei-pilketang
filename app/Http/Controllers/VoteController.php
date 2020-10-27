@@ -20,6 +20,10 @@ class VoteController extends Controller
 
     public function submit(Request $request)
     {
+        $user = \Auth::user();
+        if ($user->is_voted)
+           return back()->with('error', 'Kamu sudah pernah vote');
+
         $req = $request->validate([
             'token' => [ 'required', 'string', 'size:6', 'exists:tokens,token_vote' ],
             'calon' => [ 'required', 'in:lingga,gede' ]
@@ -39,7 +43,6 @@ class VoteController extends Controller
         $token_model->is_token_used = true;
         $token_model->save();
 
-        $user = \Auth::user();
         $user->is_voted = true;
         $user->save();
 

@@ -16,6 +16,26 @@
         crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ asset('css/sso.css') }}" />
+    <style>
+        .btn-grad {
+            background-image: linear-gradient(to right, #56CCF2 0%, #2F80ED 51%, #56CCF2 100%)
+        }
+
+        .btn-grad {
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            display: block;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
     @yield('custom-head')
 </head>
 <body class="text-center">

@@ -12,13 +12,28 @@
                         <i class="fas fa-vote-yea mr-3"></i>
                     </div>
                     <h5 class="card-title">Informasi</h5>
-                    <div class="display-4">Vote Day</div>
-                    <a href="{{ url('/vote') }}">
+                    @if(config('app.enable_vote'))
+                        <div class="display-4">Vote Day</div>
+                        <a href="{{ route('home.vote') }}">
+                            <p class="card-text text-white">
+                                Area Voting
+                                <i class="fas fa-angle-double-right ml-2"></i>
+                            </p>
+                        </a>
+                    @elseif(config('app.enable_claim_token'))
+                        <h2>Token Day</h2>
+                        <a href="{{ route('home.token') }}">
+                            <p class="card-text text-white">
+                                Area Token
+                                <i class="fas fa-angle-double-right ml-2"></i>
+                            </p>
+                        </a>
+                    @else
+                        <h2>Registration Day</h2>
                         <p class="card-text text-white">
-                            Area Voting
-                            <i class="fas fa-angle-double-right ml-2"></i>
+                            Belum ada yang menarik. Ditunggu ya!
                         </p>
-                    </a>
+                    @endif
                 </div>
             </div>
 

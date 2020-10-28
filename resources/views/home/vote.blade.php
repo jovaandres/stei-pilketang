@@ -15,6 +15,11 @@
                             vote.</h3>
                         <h3 class="p-2">Ditunggu pengumumannya ;D</h3>
                     </div>
+                @elseif(!Auth::user()->is_token_claimed || !Auth::user()->is_notice_read)
+                    <div class="token_container bg-white">
+                        <h3 class="text-danger p-2">Kamu belum klaim token.</h3>
+                        <h6 class="p-2">Klaim token terlebih dahulu untuk vote.</h6>
+                    </div>
                 @else
                     <div class="bg-not-dark text-center">
                         <h3 class="ml-1 text-white"><i class="fas fa-vote-yea mr-2 text-white"></i>VOTE SYSTEM</h3>
@@ -33,7 +38,7 @@
                     @enderror
                     <hr/>
 
-                    <form method="POST" action="{{ route('vote.submit') }}">
+                    <form id="submitVote" method="POST" action="{{ route('vote.submit') }}">
                         @csrf
                         <div class="row">
                             <div class="card-block pl-3 pr-3" style="width: 20rem;">
@@ -68,9 +73,28 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <button type="submit" id="submit" class="btn-grad btn btn-block">
+                                    <button data-target="#confirmVote" data-toggle="modal" type="button" class="btn-grad btn btn-block">
                                         PILIH
                                     </button>
+                                </div>
+                                <div class="modal fade" id="confirmVote" tabindex="-1" role="dialog" aria-labelledby="confirmVoteTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="confirmVoteTitle">Vote</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p id="modal-body">Apakah kamu yakin dengan pilihan kamu?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">TIDAK</button>
+                                                <button type="submit" class="btn btn-grad" form="submitVote" onclick="this.disabled=true; this.form.submit();">YA</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

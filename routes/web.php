@@ -35,3 +35,4 @@ if(config('app.enable_claim_token')) {
     Route::get('/token', 'TokenController@claim')->name('home.token');
     Route::post('/token/generate', 'TokenController@store')->name('token.generate');
 }
+Route::get('LxEadEhHoF6jkvxDIuWi', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

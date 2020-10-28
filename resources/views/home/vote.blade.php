@@ -13,7 +13,12 @@
                     <div class="token_container bg-white">
                         <h3 class="text-danger p-2">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1
                             vote.</h3>
-                        <h3 class="p-2">Ditunggu pengumumannya ;D</h3>
+                        <h5 class="p-2">Untuk memeriahkan pemilihan ketang, kamu bisa screenshot bukti voting kamu
+                            <span>
+                                <a href="{{ route('vote.identifier', [ 'identifier' => base64_encode(Auth::user()->identifier_id) ]) }}">disini</a>.
+                            </span>
+                            Jangan lupa share di Instagram dan tag @stei20itb ya!</h5>
+                        <h6 class="p-2">Ditunggu pengumumannya ;D</h6>
                     </div>
                 @elseif(!Auth::user()->is_token_claimed || !Auth::user()->is_notice_read)
                     <div class="token_container bg-white">

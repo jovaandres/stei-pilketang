@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}" class="roundedd form-signin bg-light">
+    <form method="POST" action="{{ route('login') }}" class="rounded form-signin bg-light">
         @csrf
         <img class="mb-4" src="{{ asset('img/logo.png') }}" alt="logo stei" height="80px" />
         <h1 class="h3 mb-3 font-weight-normal">Masuk</h1>

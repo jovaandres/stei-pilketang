@@ -50,7 +50,6 @@
             Masuk
         </button>
         <p>
-            <a href="{{ route('password.request') }}">Lupa Password?</a><br />
             <a href="{{ route('register') }}">Buat akun</a>
         </p>
     </form>

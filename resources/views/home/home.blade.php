@@ -60,7 +60,8 @@
                     @if(config('app.is_vote_ended'))
                         <h5 class="card-title">Countdown</h5>
                         <div class="display-4" style="font-size: 30px">
-                            <div id="countdown"></div>
+{{--                            <div id="countdown"></div>--}}
+                            <div class="text-white">0d 12h 0m 0s</div>
                         </div>
                     @else
                         <h5 class="card-title">Tanggal dan Waktu</h5>

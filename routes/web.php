@@ -29,12 +29,12 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/ketang', 'HomeController@ketang')->name('home.ketang');
 Route::get('/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/identity/{identifier}', 'IdentifierController@show')->name('vote.identifier');
-if(config('app.enable_vote')) {
+if(config('app.enable_vote') && !config('app.is_vote_ended')) {
     Route::get('/vote', 'VoteController@show')->name('home.vote');
     Route::post('/vote/submit', 'VoteController@submit')->name('vote.submit');
 }
 Route::post('/token/notice/read', 'TokenController@mark_notice')->name('token.notice.mark-notice');
-if(config('app.enable_claim_token')) {
+if(config('app.enable_claim_token') && !config('app.is_vote_ended')) {
     Route::get('/token', 'TokenController@claim')->name('home.token');
     Route::post('/token/generate', 'TokenController@store')->name('token.generate');
 }

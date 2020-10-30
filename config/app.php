@@ -8,6 +8,8 @@ return [
 
     'enable_see_result' => env('CAN_SEE_RESULT', false),
 
+    'is_vote_ended' => env('IS_VOTE_ENDED', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

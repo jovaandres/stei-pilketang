@@ -13,10 +13,10 @@
                     </div>
                     <h5 class="card-title">Informasi</h5>
                     @if(config('app.enable_vote'))
-                        <div class="display-4">Vote Day</div>
+                        <h2><b>Vote Day</b></h2>
                         <a href="{{ route('home.vote') }}">
                             <p class="card-text text-white">
-                                Area Voting
+                                Area Vote
                                 <i class="fas fa-angle-double-right ml-2"></i>
                             </p>
                         </a>
@@ -28,10 +28,19 @@
                                 <i class="fas fa-angle-double-right ml-2"></i>
                             </p>
                         </a>
-                    @else
-                        <h2>Registration Day</h2>
+                    @elseif(config('app.enable_see_result'))
+                        <h2><b>Hari Pengumuman</b></h2>
+                        <a id="result" href="{{ route('vote.result') }}">
                         <p class="card-text text-white">
-                            Belum ada yang menarik. Ditunggu ya!
+                            Lihat Hasil
+                            <i class="fas fa-angle-double-right ml-2"></i>
+                        </p>
+                        </a>
+                    @else
+                        <h2><b>Hari Pengumuman</b></h2>
+                        <p class="card-text text-white">
+                            Lihat hasil
+                            <i class="fas fa-angle-double-right ml-2"></i>
                         </p>
                     @endif
                 </div>
@@ -42,9 +51,9 @@
                     <div class="card-body-icon">
                         <i class="fas fa-calendar-alt mr-3"></i>
                     </div>
-                    <h5 class="card-title">Tanggal dan Waktu</h5>
+                    <h5 class="card-title">Countdown</h5>
                     <div class="display-4" style="font-size: 30px">
-                        <div id="clockbox"></div>
+                        <div id="countdown"></div>
                     </div>
                 </div>
             </div>
@@ -89,22 +98,37 @@
 @endsection
 
 @section('custom-script')
-    <script type="text/javascript">
-        var tday = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-        var tmonth = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    <script>
+        // Based on UTC
+        const countDownDate = new Date("Oct 31, 2020 5:00:00").getTime();
 
-        function GetClock() {
-            var d = new Date();
-            var nday = d.getDay(), ndate = d.getDate(), nmonth = d.getMonth(), nyear = d.getFullYear();
-            var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
-            if (nmin <= 9) nmin = "0" + nmin;
-            if (nsec <= 9) nsec = "0" + nsec;
+        var x = setInterval(function () {
+            $.getJSON('http://time.jsontest.com/', function (data) {
+                var utc_date = new Date(data.milliseconds_since_epoch).toUTCString()
+                var month = utc_date.substring(8, 11)
+                var day = utc_date.substring(5, 7)
+                var year = utc_date.substring(12, 16)
+                var time = utc_date.substring(17, 25)
 
-            var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + "";
-            document.getElementById('clockbox').innerHTML = clocktext;
-        }
+                now = new Date(month + " " + day + ", " + year + " " + time)
+            });
 
-        GetClock();
-        setInterval(GetClock, 1000);
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance <= 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = 0 + "d " + 0 + "h "
+                    + 0 + "m " + 0 + "s ";
+            }
+        }, 1000);
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 @endsection

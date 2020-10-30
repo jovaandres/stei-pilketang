@@ -6,6 +6,8 @@ return [
 
     'enable_claim_token' => env('CAN_CLAIM_TOKEN', false),
 
+    'enable_see_result' => env('CAN_SEE_RESULT', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

@@ -11,7 +11,8 @@
                         </div>
                     @endif
                     <div class="token_container bg-white">
-                        <h3 class="text-danger p-2">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan untuk 1
+                        <h3 class="text-danger p-2">Kamu sudah memilih ketang. 1 akun + 1 token hanya bisa digunakan
+                            untuk 1
                             vote.</h3>
                         <h5 class="p-2">Untuk memeriahkan pemilihan ketang, kamu bisa screenshot bukti voting kamu
                             <span>
@@ -78,16 +79,19 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <button data-target="#confirmVote" data-toggle="modal" type="button" class="btn-grad btn btn-block">
+                                    <button data-target="#confirmVote" data-toggle="modal" type="button"
+                                            class="btn-grad btn btn-block">
                                         PILIH
                                     </button>
                                 </div>
-                                <div class="modal fade" id="confirmVote" tabindex="-1" role="dialog" aria-labelledby="confirmVoteTitle" aria-hidden="true">
+                                <div class="modal fade" id="confirmVote" tabindex="-1" role="dialog"
+                                     aria-labelledby="confirmVoteTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="confirmVoteTitle">Vote</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -95,8 +99,12 @@
                                                 <p id="modal-body">Apakah kamu yakin dengan pilihan kamu?</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">TIDAK</button>
-                                                <button type="submit" class="btn btn-grad" form="submitVote" onclick="this.disabled=true; this.form.submit();">YA</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    TIDAK
+                                                </button>
+                                                <button type="submit" class="btn btn-grad" form="submitVote"
+                                                        onclick="this.disabled=true; this.form.submit();">YA
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

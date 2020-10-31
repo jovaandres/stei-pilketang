@@ -29,27 +29,29 @@
                                     <i class="fas fa-angle-double-right ml-2"></i>
                                 </p>
                             </a>
-                        @endif
-                    @elseif(config('app.enable_see_result'))
-                        <h2><b>Hari Pengumuman</b></h2>
-                        <a id="result" href="{{ route('vote.result') }}">
+                        @else
+                            <h2><b>Registration day</b></h2>
                             <p class="card-text text-white">
-                                Lihat Hasil
+                                Belum ada yang menarik hari ini. Ditunggu ya!
                                 <i class="fas fa-angle-double-right ml-2"></i>
                             </p>
-                        </a>
-                    @elseif(config('app.is_vote_ended'))
-                        <h2><b>Vote has ended</b></h2>
-                        <p class="card-text text-white">
-                            Tunggu pengumuman selanjutnya ya!
-                            <i class="fas fa-angle-double-right ml-2"></i>
-                        </p>
+                        @endif
                     @else
-                        <h2><b>Registration day</b></h2>
-                        <p class="card-text text-white">
-                            Belum ada yang menarik hari ini. Ditunggu ya!
-                            <i class="fas fa-angle-double-right ml-2"></i>
-                        </p>
+                        @if(config('app.enable_see_result'))
+                            <h2><b>Hari Pengumuman</b></h2>
+                            <a id="result" href="{{ route('vote.result') }}">
+                                <p class="card-text text-white">
+                                    Lihat Hasil
+                                    <i class="fas fa-angle-double-right ml-2"></i>
+                                </p>
+                            </a>
+                        @else
+                            <h2><b>Vote has ended</b></h2>
+                            <p class="card-text text-white">
+                                Tunggu pengumuman selanjutnya ya!
+                                <i class="fas fa-angle-double-right ml-2"></i>
+                            </p>
+                        @endif
                     @endif
                 </div>
             </div>

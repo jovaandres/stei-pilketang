@@ -23,6 +23,7 @@ Route::get('/', function () {
 if (config('app.enable_see_result')) {
     Route::get('/result', 'ResultController@result')->name('vote.result');
 }
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@home')->name('home');

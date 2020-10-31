@@ -12,22 +12,24 @@
                         <i class="fas fa-vote-yea mr-3"></i>
                     </div>
                     <h5 class="card-title">Informasi</h5>
-                    @if(config('app.enable_vote') && !config('app.is_vote_ended'))
-                        <h2><b>Vote Day</b></h2>
-                        <a href="{{ route('home.vote') }}">
-                            <p class="card-text text-white">
-                                Area Vote
-                                <i class="fas fa-angle-double-right ml-2"></i>
-                            </p>
-                        </a>
-                    @elseif(config('app.enable_claim_token') && !config('app.is_vote_ended'))
-                        <h2>Token Day</h2>
-                        <a href="{{ route('home.token') }}">
-                            <p class="card-text text-white">
-                                Area Token
-                                <i class="fas fa-angle-double-right ml-2"></i>
-                            </p>
-                        </a>
+                    @if(!config('app.is_vote_ended'))
+                        @if(config('app.enable_vote'))
+                            <h2><b>Vote Day</b></h2>
+                            <a href="{{ route('home.vote') }}">
+                                <p class="card-text text-white">
+                                    Area Vote
+                                    <i class="fas fa-angle-double-right ml-2"></i>
+                                </p>
+                            </a>
+                        @elseif(config('app.enable_claim_token'))
+                            <h2>Token Day</h2>
+                            <a href="{{ route('home.token') }}">
+                                <p class="card-text text-white">
+                                    Area Token
+                                    <i class="fas fa-angle-double-right ml-2"></i>
+                                </p>
+                            </a>
+                        @endif
                     @elseif(config('app.enable_see_result'))
                         <h2><b>Hari Pengumuman</b></h2>
                         <a id="result" href="{{ route('vote.result') }}">

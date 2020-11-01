@@ -64,8 +64,7 @@
                     @if(config('app.is_vote_ended'))
                         <h5 class="card-title">Countdown</h5>
                         <div class="display-4" style="font-size: 30px">
-{{--                            <div id="countdown"></div>--}}
-                            <div class="text-white">0d 12h 0m 0s</div>
+                            <div id="countdown"></div>
                         </div>
                     @else
                         <h5 class="card-title">Tanggal dan Waktu</h5>
@@ -119,7 +118,7 @@
     {{--    Countdown Script--}}
     <script>
         // Based on UTC
-        const countDownDate = new Date("Oct 31, 2020 5:00:00").getTime();
+        const countDownDate = new Date("Nov 1, 2020 3:15:00").getTime();
 
         var x = setInterval(function () {
             $.getJSON('http://time.jsontest.com/', function (data) {
@@ -150,7 +149,7 @@
         }, 1000);
     </script>
 
-    {{--    Countdown Script--}}
+    {{--    Clock Script--}}
     <script type="text/javascript">
         var tday = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
         var tmonth = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];

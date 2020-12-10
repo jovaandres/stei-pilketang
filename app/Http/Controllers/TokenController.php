@@ -6,6 +6,7 @@ use App\Token;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Boolean;
 
@@ -52,7 +53,7 @@ class TokenController extends Controller
     public function generateToken()
     {
         $token = Str::random(6);
-        if(Token::where('token_vote', $token)->exists())
+        if(Token::where(DB::raw('BINARY `token_vote`'), $token)->exists())
             return $this->generateToken();
         return $token;
     }

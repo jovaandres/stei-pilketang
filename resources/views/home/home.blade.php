@@ -1,9 +1,9 @@
 @extends('layouts.home')
 
 @section('content')
-    <div class="p-5 pt-2">
+    <div class="px-2 pt-2">
         <div class="bg-not-dark text-center">
-            <h3 class="text-white"><i class="fas fa-user-friends mr-2 text-white"></i>DASHBOARD</h3>
+            <h3 class="text-white py-3"><i class="fas fa-user-friends mr-2 text-white"></i>DASHBOARD</h3>
         </div>
         <div class="row text-white">
             <div class="card bg-dark ml-3" style="width: 18rem">
@@ -105,8 +105,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-warning">Narahubung</h5>
                     <p style="color: black; font-size: 18px">
-                        Kevin Roni: <i class="fab fa-line mr-1"></i>kevinroni
-                        <br/>Zakie: <i class="fab fa-line mr-1"></i>pwzakie
+                        Farhandika: <i class="fab fa-line mr-1"></i>championarts
                     </p>
                 </div>
             </div>

@@ -21,9 +21,9 @@ class HomeController extends Controller
         return view('home.home');
     }
 
-    public function ketang()
+    public function calon()
     {
-        return view('home.ketang');
+        return view('home.calon');
     }
 
     public function profile()

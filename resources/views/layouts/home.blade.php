@@ -92,8 +92,8 @@
             <a href="{{ route('home.profile') }}" class="list-group-item list-group-item-action bg-light"
             ><b>Profil</b></a
             >
-            <a href="{{ route('home.ketang') }}" class="list-group-item list-group-item-action bg-light"
-            ><b>Profil Ketang</b></a
+            <a href="{{ route('home.calon') }}" class="list-group-item list-group-item-action bg-light"
+            ><b>Profil Calon</b></a
             >
             @if(config('app.enable_claim_token') && !config('app.is_vote_ended'))
                 <a href="{{ route('home.token') }}" class="list-group-item list-group-item-action bg-light"
@@ -168,12 +168,6 @@
         </div>
         <!-- /#page-content-wrapper -->
         <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn-grad btn-primary">Top</button>
-        <footer class="footer mb-auto py-1 bg-dark">
-            <div class="container ml-auto" style="font-size: 14px;">
-                <span class="text-white">This website is made with <i
-                        class="fa fa-heart" aria-hidden="true"></i> by IT Team</span>
-            </div>
-        </footer>
     </div>
     <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

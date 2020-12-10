@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ if (config('app.enable_see_result')) {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@home')->name('home');
-Route::get('/ketang', 'HomeController@ketang')->name('home.ketang');
+Route::get('/calon', 'HomeController@calon')->name('home.calon');
 Route::get('/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/identity/{identifier}', 'IdentifierController@show')->name('vote.identifier');
 if (!config('app.is_vote_ended')){

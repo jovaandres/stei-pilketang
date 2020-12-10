@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Token;
 use App\Vote;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,16 +25,15 @@ class VoteController extends Controller
         $user = \Auth::user();
         if ($user->is_voted)
             return back()->with('failed', 'Kamu sudah pernah vote');
-
         $req = $request->validate([
-            'token' => ['required', 'string', 'size:6', 'exists:tokens,token_vote'],
-            'calon' => ['required', 'in:lingga,gede']
+            'token' => ['required', 'string', 'size:6', 'iexists:tokens,token_vote'],
+            'calon' => ['required', 'in:timothy,steven,hassan,nadhira']
         ]);
 
         $input_token = $req['token'];
         $calon_dipilih = $req['calon'];
 
-        $token_model = Token::where('token_vote', $input_token)->first();
+        $token_model = Token::where(DB::raw('BINARY `token_vote`'), $input_token)->first();
         if ($token_model->is_token_used)
             return back()->with('failed', 'Token sudah digunakan!');
         $vote_model = Vote::where('panggilan', $calon_dipilih)->first();

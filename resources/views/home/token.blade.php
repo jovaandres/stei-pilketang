@@ -1,7 +1,6 @@
 @extends('layouts/home')
 
 @section('content')
-
     @if(!$user->is_notice_read)
         <div class="row d-flex justify-content-center">
             <div class="my-5 p-2 pt-2 bg-light token_container">

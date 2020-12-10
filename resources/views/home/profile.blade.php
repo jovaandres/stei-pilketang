@@ -1,9 +1,9 @@
 @extends('layouts.home')
 
 @section('content')
-    <div class="p-5 pt-2">
+    <div class="px-2 pt-2">
         <div class="bg-not-dark text-center mb-3 ">
-            <h3 class="ml-1 text-white"><i class="fas fa-user mr-2 text-white"></i>PROFIL</h3>
+            <h3 class="ml-1 text-white py-3"><i class="fas fa-user mr-2 text-white"></i>PROFIL</h3>
         </div>
 
         <div class="row z-depth-3 mr-auto ml-auto">

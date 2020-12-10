@@ -43,4 +43,4 @@ if (!config('app.is_vote_ended')){
 Route::post('/token/notice/read', 'TokenController@mark_notice')->name('token.notice.mark-notice');
 
 }
-Route::get('LxEadEhHoF6jkvxDIuWi', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+Route::get(config('app.log_url_route'), '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

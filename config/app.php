@@ -12,6 +12,8 @@ return [
 
     'countdown_date' => env('COUNTDOWN_DATE', ""),
 
+    'log_url_route' => env('LOG_URL_ROUTE', "123qpwoeam10"),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

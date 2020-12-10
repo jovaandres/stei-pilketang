@@ -10,6 +10,8 @@ return [
 
     'is_vote_ended' => env('IS_VOTE_ENDED', false),
 
+    'countdown_date' => env('COUNTDOWN_DATE', ""),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

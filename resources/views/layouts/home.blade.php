@@ -113,6 +113,7 @@
     <div id="page-content-wrapper">
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-not-dark border-bottom text-white"
+            style="z-index: 10;"
         >
             <button class="btn-grad btn" id="menu-toggle">Menu</button>
 

@@ -114,23 +114,15 @@
 @endsection
 
 @section('custom-script')
+
+    @if(config('app.is_vote_ended'))
     {{--    Countdown Script--}}
     <script>
         // Based on UTC
-        const countDownDate = new Date("Nov 1, 2020 3:15:00").getTime();
+        const countDownDate = new Date("{{ config('app.countdown_date') }}").getTime();
 
         var x = setInterval(function () {
-            $.getJSON('http://time.jsontest.com/', function (data) {
-                var utc_date = new Date(data.milliseconds_since_epoch).toUTCString()
-                var month = utc_date.substring(8, 11)
-                var day = utc_date.substring(5, 7)
-                var year = utc_date.substring(12, 16)
-                var time = utc_date.substring(17, 25)
-
-                now = new Date(month + " " + day + ", " + year + " " + time)
-            });
-
-            var distance = countDownDate - now;
+            var distance = countDownDate - Date.now();
 
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -147,7 +139,7 @@
             }
         }, 1000);
     </script>
-
+    @else
     {{--    Clock Script--}}
     <script type="text/javascript">
         var tday = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
@@ -166,5 +158,5 @@
         GetClock();
         setInterval(GetClock, 1000);
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    @endif
 @endsection
